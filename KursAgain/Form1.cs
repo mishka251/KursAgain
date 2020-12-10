@@ -16,15 +16,15 @@ namespace KursAgain
         double step = 0;
         int flag = 0;
         int time = 1000;
-        int davl;
-        int davl1;
-        int conc;
-        int conc1;
+        int pressureMin;
+        int pressureMax;
+        int concentrationsMin;
+        int concentrationMax;
         int value;
         int value1;
         int valueres;
         int valueres1;
-        int tankval;
+        int tankV;
         int tankarr;
         int fuel_all = 0;
         double temp = 30.0;
@@ -51,49 +51,98 @@ namespace KursAgain
         {
         }
 
+        bool validateIsEmptry()
+        {
+            bool isValid = true;
+            List<string> errors = new List<string>();
+
+            if (this.tbPressureMin.Text == "")
+            {
+                isValid = false;
+                errors.Add("Не заполнено минимальное давление");
+            }
+
+            if (this.tbPressureMax.Text == "")
+            {
+                isValid = false;
+                errors.Add("Не заполнено максимальное давление");
+            }
+
+            if (this.tbConcentrationMin.Text == "")
+            {
+                isValid = false;
+                errors.Add("Не заполнено минимальная концентрация");
+            }
+
+            if (this.tbConcentrationMax.Text == "")
+            {
+                isValid = false;
+                errors.Add("Не заполнено максимальная концентрация");
+            }
+
+            if (this.tbVStorage.Text == "")
+            {
+                isValid = false;
+                errors.Add("Не заполнено объем хранилища");
+            }
+
+            if (this.tbVTank.Text == "")
+            {
+                isValid = false;
+                errors.Add("Не заполнено объем цистерны");
+            }
+
+            if (this.tbNeededTemperature.Text == "")
+            {
+                isValid = false;
+                errors.Add("Не заполнено необходимая температура");
+            }
+
+            if (!isValid)
+            {
+                MessageBox.Show(String.Join("\n", errors));
+            }
+
+            return isValid;
+        }
+        
+        
+
         public void button1_Click(object sender, EventArgs e)
         {
-
-            //Условия запуска системы
-            if (!(this.tbPressureMin.Text == "") && !(this.tbPressureMax.Text == "") && !(this.tbConcentrationMin.Text == "") &&
-                !(this.tbConcentrationMax.Text == "")
-                && !(this.tbVTank.Text == "") && !(this.tbNeededTemperature.Text == "") && !(this.tbVStorage.Text == ""))
+            if (!validateIsEmptry())
             {
-                int pressureMin = Convert.ToInt32(tbPressureMin.Text);
-                int pressureMax = Convert.ToInt32(tbPressureMax.Text);
-                int concentrationsMin = Convert.ToInt32(tbConcentrationMin.Text);
-                int concentrationMax = Convert.ToInt32(tbConcentrationMax.Text);
-                int tankV = Convert.ToInt32(tbVTank.Text);
-                neededTemperature = Convert.ToInt32(tbNeededTemperature.Text);
-                storageV = Convert.ToInt32(tbVStorage.Text);
-                int tanksCount = storageV % tankV;
+                return;
+            }
 
-                if ((pressureMin >= 500) && (pressureMax <= 1700) && (concentrationsMin >= 20) && (concentrationMax <= 99) && ((concentrationMax - concentrationsMin) >= 15) &&
-                    (neededTemperature >= 40) && (neededTemperature <= 45) && (tanksCount == 0))
-                {
-                    davl = pressureMin; // Convert.ToInt32(tbPressureMin.Text);
-                    davl1 = pressureMax; //Convert.ToInt32(tbPressureMax.Text);
-                    conc = concentrationsMin; // Convert.ToInt32(tbConcentrationMin.Text);
-                    conc1 = concentrationMax; // Convert.ToInt32(tbConcentrationMax.Text);
-                    tankval = tankV;
-                    progressBar1.Maximum = tankval + 100;
-                    progressBar2.Maximum = storageV;
+            pressureMin = Convert.ToInt32(tbPressureMin.Text);
+            pressureMax = Convert.ToInt32(tbPressureMax.Text);
+            concentrationsMin = Convert.ToInt32(tbConcentrationMin.Text);
+            concentrationMax = Convert.ToInt32(tbConcentrationMax.Text);
+            tankV = Convert.ToInt32(tbVTank.Text);
+            neededTemperature = Convert.ToInt32(tbNeededTemperature.Text);
+            storageV = Convert.ToInt32(tbVStorage.Text);
+            
+            int tanksCount = storageV % tankV;
 
-                    timer3.Stop();
-                    timer2.Stop();
-                    timer1.Start();
-                    textBox7.Text += "\r\n" + "Сисетма запущена".ToString();
-                    textBox8.Text += "Резервуар наполняется".ToString();
-                    step++;
-                }
-                else
-                {
-                    MessageBox.Show("Неверно введены параметры, смотри справку");
-                }
+            if ((pressureMin >= 500) && (pressureMax <= 1700) && (concentrationsMin >= 20) &&
+                (concentrationMax <= 99) && ((concentrationMax - concentrationsMin) >= 15) &&
+                (neededTemperature >= 40) && (neededTemperature <= 45) && (tanksCount == 0))
+            {
+    
+                progressBar1.Maximum = tankV + 100;
+                progressBar2.Maximum = storageV;
+
+                timer3.Stop();
+                timer2.Stop();
+                timer1.Start();
+                textBox7.Text += "\r\n" + "Сисетма запущена";
+                textBox8.Text += "Резервуар наполняется";
+                step++;
             }
             else
             {
-                MessageBox.Show("Введите параметры");
+                MessageBox.Show("Неверно введены параметры, смотри справку");
             }
         }
 
@@ -121,23 +170,23 @@ namespace KursAgain
             if (fuel_all > 0)
             {
                 temp = temp + 0.3;
-                label27.Text = temp.ToString();
+                lblTemperature.Text = Math.Round(temp, 1).ToString();
             }
 
             label6.Update();
             label6.Text = time.ToString();
             //    label3.Text = time.ToString();
-            int value = rnd.Next(davl - 40, davl1 + 40);
+            int value = rnd.Next(pressureMin - 40, pressureMax + 40);
             // valueres = value;
-            int value1 = rnd1.Next(conc - 3, conc1 + 3);
+            int value1 = rnd1.Next(concentrationsMin - 3, concentrationMax + 3);
             //valueres1 = value1;
-            // label4.Text = conc.ToString();
-            /*  label5.Text = davl1.ToString();
+            // label4.Text = concentrationsMin.ToString();
+            /*  label5.Text = pressureMax.ToString();
               */
             //Давление в системе
             label1.Text = value.ToString();
 
-            if (((value >= davl) && (value < davl1)))
+            if (((value >= pressureMin) && (value < pressureMax)))
             {
                 textBox5.Clear();
                 textBox5.Text += "\r\n" + "Давление в норме.".ToString();
@@ -152,7 +201,7 @@ namespace KursAgain
 
             //пропорции концентратов
             label2.Text = value1.ToString();
-            if ((value1 >= conc) && (value1 < conc1))
+            if ((value1 >= concentrationsMin) && (value1 < concentrationMax))
             {
                 textBox6.Clear();
                 textBox6.Text += "\r\n" + "Концентрация реагентов в норме.".ToString();
@@ -168,16 +217,16 @@ namespace KursAgain
             tankarr = tankarr + value / 15;
             label22.Text = (value / 15).ToString();
             label19.Text = tankarr.ToString();
-            if (tankarr >= tankval)
+            if (tankarr >= tankV)
             {
                 textBox8.Clear();
                 textBox8.Text += "Резервуар переполнен!".ToString();
                 textBox8.Update();
-                tankarr = tankval;
-                label19.Text = tankval.ToString();
+                tankarr = tankV;
+                label19.Text = tankV.ToString();
                 fuel_all = fuel_all + tankarr;
                 temp = ((temp - temp_0) / 2 + temp_0);
-                label27.Text = temp.ToString();
+                lblTemperature.Text = Math.Round(temp, 1).ToString();
                 progressBar2.Value = progressBar2.Value + tankarr;
                 label29.Text = fuel_all.ToString();
                 tankarr = 0;
@@ -215,23 +264,23 @@ namespace KursAgain
                 flag = 1;
                 if (flag == 1)
                 {
-                    label27.Text = temp.ToString();
+                    lblTemperature.Text = Math.Round(temp, 1).ToString();
                 }
                 else
                 {
                     flag = 0;
-                    label27.Text = (temp / 2).ToString();
+                    lblTemperature.Text = Math.Round((temp / 2), 1).ToString();
                 }
             }
 
 
-            if (progressBar1.Value < tankval)
+            if (progressBar1.Value < tankV)
             {
                 progressBar1.Value = progressBar1.Value + value / 15;
             }
             else
             {
-                progressBar1.Value = tankval;
+                progressBar1.Value = tankV;
             }
         }
 
@@ -273,10 +322,10 @@ namespace KursAgain
             textBox5.Update();
             label6.Text = time.ToString();
             label6.Update();
-            int i = davl;
+            int i = pressureMin;
             int k = value1;
-            int value11 = rnd2.Next(conc - 3, conc1 + 3);
-            if ((value11 >= conc) && (value11 < conc1))
+            int value11 = rnd2.Next(concentrationsMin - 3, concentrationMax + 3);
+            if ((value11 >= concentrationsMin) && (value11 < concentrationMax))
             {
                 textBox6.Clear();
                 textBox6.Text += "\r\n" + "Концентрация реагентов в норме.".ToString();
@@ -296,16 +345,16 @@ namespace KursAgain
             tankarr = tankarr + time / 15;
             label22.Text = (time / 15).ToString();
             label19.Text = tankarr.ToString();
-            if (tankarr >= tankval)
+            if (tankarr >= tankV)
             {
                 textBox8.Clear();
                 textBox8.Text += "Резервуар переполнен!".ToString();
                 textBox8.Update();
-                tankarr = tankval;
-                label19.Text = tankval.ToString();
+                tankarr = tankV;
+                label19.Text = tankV.ToString();
                 fuel_all = fuel_all + tankarr;
                 temp = ((temp - temp_0) / 2 + temp_0);
-                label27.Text = temp.ToString();
+                lblTemperature.Text = Math.Round(temp, 1).ToString();
                 progressBar2.Value = progressBar2.Value + tankarr;
                 label29.Text = fuel_all.ToString();
                 tankarr = 0;
@@ -397,11 +446,11 @@ namespace KursAgain
             textBox6.Update();
             label6.Text = time.ToString();
             label6.Update();
-            int i = conc;
+            int i = concentrationsMin;
             int k = value;
-            int value12 = rnd1.Next(davl - 40, davl1 + 40);
+            int value12 = rnd1.Next(pressureMin - 40, pressureMax + 40);
             label2.Update();
-            if (((value12 >= davl) && (value12 < davl1)))
+            if (((value12 >= pressureMin) && (value12 < pressureMax)))
             {
                 textBox5.Clear();
                 textBox5.Text += "\r\n" + "Давление в норме.".ToString();
@@ -418,16 +467,16 @@ namespace KursAgain
             label22.Text = (value12 / 15).ToString();
 
             label19.Text = tankarr.ToString();
-            if (tankarr >= tankval)
+            if (tankarr >= tankV)
             {
                 textBox8.Clear();
                 textBox8.Text += "Резервуар переполнен!".ToString();
                 textBox8.Update();
-                tankarr = tankval;
-                label19.Text = tankval.ToString();
+                tankarr = tankV;
+                label19.Text = tankV.ToString();
                 fuel_all = fuel_all + tankarr;
                 temp = ((temp - temp_0) / 2 + temp_0);
-                label27.Text = temp.ToString();
+                lblTemperature.Text = Math.Round(temp, 1).ToString();
                 progressBar2.Value = progressBar2.Value + tankarr;
                 label29.Text = fuel_all.ToString();
                 tankarr = 0;
@@ -539,7 +588,7 @@ namespace KursAgain
             timer4.Start();
             time = time - 1;
             temp = temp + 0.3;
-            label27.Text = Math.Round(temp, 0).ToString();
+            lblTemperature.Text = Math.Round(temp, 1).ToString();
             if ((temp == neededTemperature) || (temp > neededTemperature))
             {
                 timer4.Stop();

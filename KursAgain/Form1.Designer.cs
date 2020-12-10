@@ -81,7 +81,7 @@ namespace KursAgain
             this.label25 = new System.Windows.Forms.Label();
             this.tbVStorage = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.lblTemperature = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -549,15 +549,15 @@ namespace KursAgain
             this.label26.TabIndex = 49;
             this.label26.Text = "Объем хранилища м3(кратен V цистерны)";
             // 
-            // label27
+            // lblTemperature
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(336, 206);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(13, 13);
-            this.label27.TabIndex = 50;
-            this.label27.Text = "_";
-            this.label27.Click += new System.EventHandler(this.label27_Click);
+            this.lblTemperature.AutoSize = true;
+            this.lblTemperature.Location = new System.Drawing.Point(336, 206);
+            this.lblTemperature.Name = "lblTemperature";
+            this.lblTemperature.Size = new System.Drawing.Size(13, 13);
+            this.lblTemperature.TabIndex = 50;
+            this.lblTemperature.Text = "_";
+            this.lblTemperature.Click += new System.EventHandler(this.label27_Click);
             // 
             // label28
             // 
@@ -616,7 +616,7 @@ namespace KursAgain
             this.Controls.Add(this.label30);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.label28);
-            this.Controls.Add(this.label27);
+            this.Controls.Add(this.lblTemperature);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.tbVStorage);
             this.Controls.Add(this.label25);
@@ -725,7 +725,7 @@ namespace KursAgain
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox tbVStorage;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label lblTemperature;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
