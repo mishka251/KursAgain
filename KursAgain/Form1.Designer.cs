@@ -39,10 +39,6 @@ namespace KursAgain
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tbPressureMin = new System.Windows.Forms.TextBox();
-            this.tbPressureMax = new System.Windows.Forms.TextBox();
-            this.tbConcentrationMin = new System.Windows.Forms.TextBox();
-            this.tbConcentrationMax = new System.Windows.Forms.TextBox();
             this.tbShowPressure = new System.Windows.Forms.TextBox();
             this.tbShowConcentration = new System.Windows.Forms.TextBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
@@ -71,15 +67,12 @@ namespace KursAgain
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.tbVTank = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.tbNeededTemperature = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.tbVStorage = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.lblTemperature = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -88,7 +81,22 @@ namespace KursAgain
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.nuPressureMin = new System.Windows.Forms.NumericUpDown();
+            this.nuPressureMax = new System.Windows.Forms.NumericUpDown();
+            this.nuTemperatureNeeded = new System.Windows.Forms.NumericUpDown();
+            this.nuVStorage = new System.Windows.Forms.NumericUpDown();
+            this.nuVTank = new System.Windows.Forms.NumericUpDown();
+            this.nuConcentrationMin = new System.Windows.Forms.NumericUpDown();
+            this.nuConcentrationMax = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuPressureMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuPressureMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuTemperatureNeeded)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuVStorage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuVTank)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuConcentrationMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuConcentrationMax)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -160,37 +168,6 @@ namespace KursAgain
             // 
             this.timer1.Interval = 1500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // tbPressureMin
-            // 
-            this.tbPressureMin.Location = new System.Drawing.Point(794, 16);
-            this.tbPressureMin.Name = "tbPressureMin";
-            this.tbPressureMin.Size = new System.Drawing.Size(100, 20);
-            this.tbPressureMin.TabIndex = 10;
-            this.tbPressureMin.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // tbPressureMax
-            // 
-            this.tbPressureMax.Location = new System.Drawing.Point(900, 16);
-            this.tbPressureMax.Name = "tbPressureMax";
-            this.tbPressureMax.Size = new System.Drawing.Size(100, 20);
-            this.tbPressureMax.TabIndex = 11;
-            // 
-            // tbConcentrationMin
-            // 
-            this.tbConcentrationMin.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (192)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
-            this.tbConcentrationMin.Location = new System.Drawing.Point(794, 91);
-            this.tbConcentrationMin.Name = "tbConcentrationMin";
-            this.tbConcentrationMin.Size = new System.Drawing.Size(100, 20);
-            this.tbConcentrationMin.TabIndex = 12;
-            // 
-            // tbConcentrationMax
-            // 
-            this.tbConcentrationMax.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (192)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
-            this.tbConcentrationMax.Location = new System.Drawing.Point(900, 91);
-            this.tbConcentrationMax.Name = "tbConcentrationMax";
-            this.tbConcentrationMax.Size = new System.Drawing.Size(100, 20);
-            this.tbConcentrationMax.TabIndex = 13;
             // 
             // tbShowPressure
             // 
@@ -461,13 +438,6 @@ namespace KursAgain
             this.label20.Text = "м3";
             this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
-            // tbVTank
-            // 
-            this.tbVTank.Location = new System.Drawing.Point(511, 39);
-            this.tbVTank.Name = "tbVTank";
-            this.tbVTank.Size = new System.Drawing.Size(100, 20);
-            this.tbVTank.TabIndex = 40;
-            // 
             // button7
             // 
             this.button7.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -517,13 +487,6 @@ namespace KursAgain
             this.label24.Text = "Т нефти на поверхности 30С";
             this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
-            // tbNeededTemperature
-            // 
-            this.tbNeededTemperature.Location = new System.Drawing.Point(323, 125);
-            this.tbNeededTemperature.Name = "tbNeededTemperature";
-            this.tbNeededTemperature.Size = new System.Drawing.Size(100, 20);
-            this.tbNeededTemperature.TabIndex = 46;
-            // 
             // label25
             // 
             this.label25.AutoSize = true;
@@ -532,13 +495,6 @@ namespace KursAgain
             this.label25.Size = new System.Drawing.Size(208, 13);
             this.label25.TabIndex = 47;
             this.label25.Text = "Требуемая температура нетфи (40-45С)";
-            // 
-            // tbVStorage
-            // 
-            this.tbVStorage.Location = new System.Drawing.Point(323, 178);
-            this.tbVStorage.Name = "tbVStorage";
-            this.tbVStorage.Size = new System.Drawing.Size(100, 20);
-            this.tbVStorage.TabIndex = 48;
             // 
             // label26
             // 
@@ -606,27 +562,110 @@ namespace KursAgain
             this.progressBar1.TabIndex = 39;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(391, 16);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(90, 29);
+            this.btnClear.TabIndex = 55;
+            this.btnClear.Text = "Очистить";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // nuPressureMin
+            // 
+            this.nuPressureMin.Location = new System.Drawing.Point(801, 18);
+            this.nuPressureMin.Maximum = new decimal(new int[] {900, 0, 0, 0});
+            this.nuPressureMin.Minimum = new decimal(new int[] {500, 0, 0, 0});
+            this.nuPressureMin.Name = "nuPressureMin";
+            this.nuPressureMin.Size = new System.Drawing.Size(80, 20);
+            this.nuPressureMin.TabIndex = 56;
+            this.nuPressureMin.Value = new decimal(new int[] {500, 0, 0, 0});
+            // 
+            // nuPressureMax
+            // 
+            this.nuPressureMax.Location = new System.Drawing.Point(917, 18);
+            this.nuPressureMax.Maximum = new decimal(new int[] {1700, 0, 0, 0});
+            this.nuPressureMax.Minimum = new decimal(new int[] {1200, 0, 0, 0});
+            this.nuPressureMax.Name = "nuPressureMax";
+            this.nuPressureMax.Size = new System.Drawing.Size(74, 20);
+            this.nuPressureMax.TabIndex = 57;
+            this.nuPressureMax.Value = new decimal(new int[] {1200, 0, 0, 0});
+            // 
+            // nuTemperatureNeeded
+            // 
+            this.nuTemperatureNeeded.Location = new System.Drawing.Point(315, 122);
+            this.nuTemperatureNeeded.Maximum = new decimal(new int[] {45, 0, 0, 0});
+            this.nuTemperatureNeeded.Minimum = new decimal(new int[] {40, 0, 0, 0});
+            this.nuTemperatureNeeded.Name = "nuTemperatureNeeded";
+            this.nuTemperatureNeeded.Size = new System.Drawing.Size(117, 20);
+            this.nuTemperatureNeeded.TabIndex = 58;
+            this.nuTemperatureNeeded.Value = new decimal(new int[] {40, 0, 0, 0});
+            // 
+            // nuVStorage
+            // 
+            this.nuVStorage.Location = new System.Drawing.Point(290, 183);
+            this.nuVStorage.Maximum = new decimal(new int[] {10000, 0, 0, 0});
+            this.nuVStorage.Name = "nuVStorage";
+            this.nuVStorage.Size = new System.Drawing.Size(142, 20);
+            this.nuVStorage.TabIndex = 59;
+            this.nuVStorage.Value = new decimal(new int[] {35, 0, 0, 0});
+            // 
+            // nuVTank
+            // 
+            this.nuVTank.Location = new System.Drawing.Point(510, 37);
+            this.nuVTank.Maximum = new decimal(new int[] {1000, 0, 0, 0});
+            this.nuVTank.Name = "nuVTank";
+            this.nuVTank.Size = new System.Drawing.Size(105, 20);
+            this.nuVTank.TabIndex = 60;
+            this.nuVTank.Value = new decimal(new int[] {5, 0, 0, 0});
+            // 
+            // nuConcentrationMin
+            // 
+            this.nuConcentrationMin.Location = new System.Drawing.Point(801, 91);
+            this.nuConcentrationMin.Maximum = new decimal(new int[] {99, 0, 0, 0});
+            this.nuConcentrationMin.Minimum = new decimal(new int[] {20, 0, 0, 0});
+            this.nuConcentrationMin.Name = "nuConcentrationMin";
+            this.nuConcentrationMin.Size = new System.Drawing.Size(80, 20);
+            this.nuConcentrationMin.TabIndex = 61;
+            this.nuConcentrationMin.Value = new decimal(new int[] {20, 0, 0, 0});
+            // 
+            // nuConcentrationMax
+            // 
+            this.nuConcentrationMax.Increment = new decimal(new int[] {20, 0, 0, 0});
+            this.nuConcentrationMax.Location = new System.Drawing.Point(917, 89);
+            this.nuConcentrationMax.Maximum = new decimal(new int[] {99, 0, 0, 0});
+            this.nuConcentrationMax.Name = "nuConcentrationMax";
+            this.nuConcentrationMax.Size = new System.Drawing.Size(74, 20);
+            this.nuConcentrationMax.TabIndex = 62;
+            this.nuConcentrationMax.Value = new decimal(new int[] {99, 0, 0, 0});
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1034, 448);
+            this.ClientSize = new System.Drawing.Size(1051, 448);
+            this.Controls.Add(this.nuConcentrationMax);
+            this.Controls.Add(this.nuConcentrationMin);
+            this.Controls.Add(this.nuVTank);
+            this.Controls.Add(this.nuVStorage);
+            this.Controls.Add(this.nuTemperatureNeeded);
+            this.Controls.Add(this.nuPressureMax);
+            this.Controls.Add(this.nuPressureMin);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.lblTemperature);
             this.Controls.Add(this.label26);
-            this.Controls.Add(this.tbVStorage);
             this.Controls.Add(this.label25);
-            this.Controls.Add(this.tbNeededTemperature);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.tbVTank);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
@@ -652,10 +691,6 @@ namespace KursAgain
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbShowConcentration);
             this.Controls.Add(this.tbShowPressure);
-            this.Controls.Add(this.tbConcentrationMax);
-            this.Controls.Add(this.tbConcentrationMin);
-            this.Controls.Add(this.tbPressureMax);
-            this.Controls.Add(this.tbPressureMin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -668,11 +703,30 @@ namespace KursAgain
             this.Text = "Система контроля добычи нефти";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuPressureMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuPressureMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuTemperatureNeeded)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuVStorage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuVTank)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuConcentrationMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.nuConcentrationMax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-       
+        private System.Windows.Forms.NumericUpDown nuConcentrationMax;
+        private System.Windows.Forms.NumericUpDown nuConcentrationMin;
+
+        private System.Windows.Forms.NumericUpDown nuVTank;
+
+        private System.Windows.Forms.NumericUpDown nuVStorage;
+
+        private System.Windows.Forms.NumericUpDown nuTemperatureNeeded;
+
+        private System.Windows.Forms.NumericUpDown nuPressureMax;
+        private System.Windows.Forms.NumericUpDown nuPressureMin;
+
+        private System.Windows.Forms.Button btnClear;
 
         #endregion
 
@@ -683,10 +737,6 @@ namespace KursAgain
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.TextBox tbPressureMin;
-        private System.Windows.Forms.TextBox tbPressureMax;
-        private System.Windows.Forms.TextBox tbConcentrationMin;
-        private System.Windows.Forms.TextBox tbConcentrationMax;
         private System.Windows.Forms.TextBox tbShowPressure;
         private System.Windows.Forms.TextBox tbShowConcentration;
         private System.Windows.Forms.Timer timer2;
@@ -715,15 +765,12 @@ namespace KursAgain
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox tbVTank;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox tbNeededTemperature;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox tbVStorage;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label lblTemperature;
         private System.Windows.Forms.Label label28;

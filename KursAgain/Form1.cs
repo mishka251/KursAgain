@@ -20,7 +20,7 @@ namespace KursAgain
         int pressureMax;
         int concentrationsMin;
         int concentrationMax;
-        
+
         int value;
         int value1;
         int valueres;
@@ -52,85 +52,23 @@ namespace KursAgain
         {
         }
 
-        bool validateIsEmptry()
-        {
-            bool isValid = true;
-            List<string> errors = new List<string>();
-
-            if (this.tbPressureMin.Text == "")
-            {
-                isValid = false;
-                errors.Add("Не заполнено минимальное давление");
-            }
-
-            if (this.tbPressureMax.Text == "")
-            {
-                isValid = false;
-                errors.Add("Не заполнено максимальное давление");
-            }
-
-            if (this.tbConcentrationMin.Text == "")
-            {
-                isValid = false;
-                errors.Add("Не заполнено минимальная концентрация");
-            }
-
-            if (this.tbConcentrationMax.Text == "")
-            {
-                isValid = false;
-                errors.Add("Не заполнено максимальная концентрация");
-            }
-
-            if (this.tbVStorage.Text == "")
-            {
-                isValid = false;
-                errors.Add("Не заполнено объем хранилища");
-            }
-
-            if (this.tbVTank.Text == "")
-            {
-                isValid = false;
-                errors.Add("Не заполнено объем цистерны");
-            }
-
-            if (this.tbNeededTemperature.Text == "")
-            {
-                isValid = false;
-                errors.Add("Не заполнено необходимая температура");
-            }
-
-            if (!isValid)
-            {
-                MessageBox.Show(String.Join("\n", errors));
-            }
-
-            return isValid;
-        }
-        
-        
 
         public void button1_Click(object sender, EventArgs e)
         {
-            if (!validateIsEmptry())
-            {
-                return;
-            }
+            pressureMin = Convert.ToInt32(nuPressureMin.Value);
+            pressureMax = Convert.ToInt32(nuPressureMax.Text);
+            concentrationsMin = Convert.ToInt32(nuConcentrationMin.Text);
+            concentrationMax = Convert.ToInt32(nuConcentrationMax.Text);
+            tankV = Convert.ToInt32(nuVTank.Text);
+            neededTemperature = Convert.ToInt32(nuTemperatureNeeded.Value);
+            storageV = Convert.ToInt32(nuVStorage.Value);
 
-            pressureMin = Convert.ToInt32(tbPressureMin.Text);
-            pressureMax = Convert.ToInt32(tbPressureMax.Text);
-            concentrationsMin = Convert.ToInt32(tbConcentrationMin.Text);
-            concentrationMax = Convert.ToInt32(tbConcentrationMax.Text);
-            tankV = Convert.ToInt32(tbVTank.Text);
-            neededTemperature = Convert.ToInt32(tbNeededTemperature.Text);
-            storageV = Convert.ToInt32(tbVStorage.Text);
-            
             int tanksCount = storageV % tankV;
 
-            if ((pressureMin >= 500) && (pressureMax <= 1700) && (concentrationsMin >= 20) &&
-                (concentrationMax <= 99) && ((concentrationMax - concentrationsMin) >= 15) &&
-                (neededTemperature >= 40) && (neededTemperature <= 45) && (tanksCount == 0))
+            if ((pressureMin <= pressureMax) &&
+                ((concentrationMax - concentrationsMin) >= 15) &&
+                (tanksCount == 0))
             {
-    
                 progressBar1.Maximum = tankV + 100;
                 progressBar2.Maximum = storageV;
 
@@ -598,6 +536,10 @@ namespace KursAgain
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
         {
         }
     }
