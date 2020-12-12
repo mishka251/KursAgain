@@ -39,18 +39,7 @@ namespace KursAgain
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-        }
+      
 
 
         public void button1_Click(object sender, EventArgs e)
@@ -93,10 +82,6 @@ namespace KursAgain
             timer3.Stop();
             timer4.Stop();
             textBox7.Text += "\r\n" + "Сисетма остановлена".ToString();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
         }
 
         //Инициализация кнопки СТАРТ
@@ -452,21 +437,7 @@ namespace KursAgain
             timer1.Start();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label20_Click(object sender, EventArgs e)
-        {
-        }
+  
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -475,7 +446,7 @@ namespace KursAgain
             label29.Text = fuel_all.ToString();
             tankarr = 0;
             textBox8.Clear();
-            textBox8.Text += "Резервуар наполняется".ToString();
+            textBox8.Text += "Резервуар наполняется";
             progressBar1.Value = 0;
             temp = ((temp - temp_0) / 2 + temp_0);
             if (fuel_all == storageV)
@@ -497,29 +468,7 @@ namespace KursAgain
             }
         }
 
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label24_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label27_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-        }
+       
 
         private void timer4_Tick(object sender, EventArgs e)
         {
@@ -528,16 +477,13 @@ namespace KursAgain
             time = time - 1;
             temp = temp + 0.3;
             lblTemperature.Text = Math.Round(temp, 1).ToString();
-            if ((temp == neededTemperature) || (temp > neededTemperature))
+            if ((temp >= neededTemperature))
             {
                 timer4.Stop();
                 MessageBox.Show("Нефть в хранилище нагрета");
             }
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
+        
 
         private void btnClear_Click(object sender, EventArgs e)
         {

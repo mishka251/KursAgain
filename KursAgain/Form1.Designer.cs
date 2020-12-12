@@ -119,7 +119,6 @@ namespace KursAgain
             this.label1.Size = new System.Drawing.Size(13, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "_";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // label2
             // 
@@ -195,7 +194,6 @@ namespace KursAgain
             this.tbShowConcentration.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbShowConcentration.Size = new System.Drawing.Size(233, 20);
             this.tbShowConcentration.TabIndex = 15;
-            this.tbShowConcentration.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // timer2
             // 
@@ -258,7 +256,6 @@ namespace KursAgain
             this.label8.Size = new System.Drawing.Size(107, 13);
             this.label8.TabIndex = 23;
             this.label8.Text = "min: 500-900 кг/см2";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -269,7 +266,6 @@ namespace KursAgain
             this.label9.Size = new System.Drawing.Size(117, 13);
             this.label9.TabIndex = 24;
             this.label9.Text = "max 1200-1700 кг см2";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -351,8 +347,7 @@ namespace KursAgain
             this.label16.Size = new System.Drawing.Size(43, 13);
             this.label16.TabIndex = 33;
             this.label16.Text = "кг/см2";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
-            // 
+           // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -398,7 +393,6 @@ namespace KursAgain
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label18
             // 
@@ -417,7 +411,6 @@ namespace KursAgain
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(175, 20);
             this.textBox8.TabIndex = 36;
-            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label19
             // 
@@ -436,7 +429,6 @@ namespace KursAgain
             this.label20.Size = new System.Drawing.Size(21, 13);
             this.label20.TabIndex = 38;
             this.label20.Text = "м3";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // button7
             // 
@@ -485,7 +477,6 @@ namespace KursAgain
             this.label24.Size = new System.Drawing.Size(152, 13);
             this.label24.TabIndex = 45;
             this.label24.Text = "Т нефти на поверхности 30С";
-            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // label25
             // 
@@ -513,7 +504,6 @@ namespace KursAgain
             this.lblTemperature.Size = new System.Drawing.Size(13, 13);
             this.lblTemperature.TabIndex = 50;
             this.lblTemperature.Text = "_";
-            this.lblTemperature.Click += new System.EventHandler(this.label27_Click);
             // 
             // label28
             // 
@@ -560,7 +550,6 @@ namespace KursAgain
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(10, 23);
             this.progressBar1.TabIndex = 39;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // btnClear
             // 
@@ -701,7 +690,6 @@ namespace KursAgain
             this.Name = "Form1";
             this.RightToLeftLayout = true;
             this.Text = "Система контроля добычи нефти";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.nuPressureMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.nuPressureMax)).EndInit();
