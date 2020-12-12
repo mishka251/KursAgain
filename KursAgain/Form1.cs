@@ -23,8 +23,6 @@ namespace KursAgain
 
         int value;
         int value1;
-        int valueres;
-        int valueres1;
         int tankV;
         int tankarr;
         int fuel_all = 0;
@@ -38,8 +36,6 @@ namespace KursAgain
         {
             InitializeComponent();
         }
-
-      
 
 
         public void button1_Click(object sender, EventArgs e)
@@ -108,7 +104,7 @@ namespace KursAgain
             /*  label5.Text = pressureMax.ToString();
               */
             //Давление в системе
-            label1.Text = pressure.ToString();
+            lbl_pressure.Text = pressure.ToString();
 
             if (((pressure >= pressureMin) && (pressure < pressureMax)))
             {
@@ -124,7 +120,7 @@ namespace KursAgain
             }
 
             //пропорции концентратов
-            label2.Text = concentration.ToString();
+            lbl_percent.Text = concentration.ToString();
             if ((concentration >= concentrationsMin) && (concentration < concentrationMax))
             {
                 tbShowConcentration.Clear();
@@ -139,20 +135,20 @@ namespace KursAgain
             }
 
             tankarr = tankarr + pressure / 15;
-            label22.Text = (pressure / 15).ToString();
-            label19.Text = tankarr.ToString();
+            lbl_speed.Text = (pressure / 15).ToString();
+            lblV2.Text = tankarr.ToString();
             if (tankarr >= tankV)
             {
                 textBox8.Clear();
                 textBox8.Text += "Резервуар переполнен!".ToString();
                 textBox8.Update();
                 tankarr = tankV;
-                label19.Text = tankV.ToString();
+                lblV2.Text = tankV.ToString();
                 fuel_all = fuel_all + tankarr;
                 temp = ((temp - temp_0) / 2 + temp_0);
                 lblTemperature.Text = Math.Round(temp, 1).ToString();
                 progressBar2.Value = progressBar2.Value + tankarr;
-                label29.Text = fuel_all.ToString();
+                lblV1.Text = fuel_all.ToString();
                 tankarr = 0;
                 textBox8.Clear();
                 textBox8.Text += "Резервуар наполняется".ToString();
@@ -208,10 +204,6 @@ namespace KursAgain
             }
         }
 
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         //Инициализация аварии клапана
         private void button3_Click(object sender, EventArgs e)
         {
@@ -262,25 +254,25 @@ namespace KursAgain
                 tbShowConcentration.Update();
             }
 
-            label1.Update();
+            lbl_pressure.Update();
 
-            label1.Text = time.ToString();
-            label2.Text = value11.ToString();
+            lbl_pressure.Text = time.ToString();
+            lbl_percent.Text = value11.ToString();
             tankarr = tankarr + time / 15;
-            label22.Text = (time / 15).ToString();
-            label19.Text = tankarr.ToString();
+            lbl_speed.Text = (time / 15).ToString();
+            lblV2.Text = tankarr.ToString();
             if (tankarr >= tankV)
             {
                 textBox8.Clear();
                 textBox8.Text += "Резервуар переполнен!".ToString();
                 textBox8.Update();
                 tankarr = tankV;
-                label19.Text = tankV.ToString();
+                lblV2.Text = tankV.ToString();
                 fuel_all = fuel_all + tankarr;
                 temp = ((temp - temp_0) / 2 + temp_0);
                 lblTemperature.Text = Math.Round(temp, 1).ToString();
                 progressBar2.Value = progressBar2.Value + tankarr;
-                label29.Text = fuel_all.ToString();
+                lblV1.Text = fuel_all.ToString();
                 tankarr = 0;
                 textBox8.Clear();
                 textBox8.Text += "Резервуар наполняется".ToString();
@@ -322,21 +314,6 @@ namespace KursAgain
             timer3.Start();
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-        }
 
         int stepp = 30;
 
@@ -373,7 +350,7 @@ namespace KursAgain
             int i = concentrationsMin;
             int k = value;
             int value12 = rnd1.Next(pressureMin - 40, pressureMax + 40);
-            label2.Update();
+            lbl_percent.Update();
             if (((value12 >= pressureMin) && (value12 < pressureMax)))
             {
                 tbShowPressure.Clear();
@@ -388,21 +365,21 @@ namespace KursAgain
             }
 
             tankarr = tankarr + value12 / 15;
-            label22.Text = (value12 / 15).ToString();
+            lbl_speed.Text = (value12 / 15).ToString();
 
-            label19.Text = tankarr.ToString();
+            lblV2.Text = tankarr.ToString();
             if (tankarr >= tankV)
             {
                 textBox8.Clear();
                 textBox8.Text += "Резервуар переполнен!".ToString();
                 textBox8.Update();
                 tankarr = tankV;
-                label19.Text = tankV.ToString();
+                lblV2.Text = tankV.ToString();
                 fuel_all = fuel_all + tankarr;
                 temp = ((temp - temp_0) / 2 + temp_0);
                 lblTemperature.Text = Math.Round(temp, 1).ToString();
                 progressBar2.Value = progressBar2.Value + tankarr;
-                label29.Text = fuel_all.ToString();
+                lblV1.Text = fuel_all.ToString();
                 tankarr = 0;
                 textBox8.Clear();
                 textBox8.Text += "Резервуар наполняется".ToString();
@@ -425,8 +402,8 @@ namespace KursAgain
                 }
             }
 
-            label2.Text = time.ToString();
-            label1.Text = value12.ToString();
+            lbl_percent.Text = time.ToString();
+            lbl_pressure.Text = value12.ToString();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -437,13 +414,12 @@ namespace KursAgain
             timer1.Start();
         }
 
-  
 
         private void button7_Click(object sender, EventArgs e)
         {
             fuel_all = fuel_all + tankarr;
             progressBar2.Value = progressBar2.Value + tankarr;
-            label29.Text = fuel_all.ToString();
+            lblV1.Text = fuel_all.ToString();
             tankarr = 0;
             textBox8.Clear();
             textBox8.Text += "Резервуар наполняется";
@@ -468,7 +444,6 @@ namespace KursAgain
             }
         }
 
-       
 
         private void timer4_Tick(object sender, EventArgs e)
         {
@@ -483,10 +458,21 @@ namespace KursAgain
                 MessageBox.Show("Нефть в хранилище нагрета");
             }
         }
-        
+
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            this.textBox7.Clear();
+            this.textBox8.Clear();
+            this.tbShowConcentration.Clear();
+            this.tbShowPressure.Clear();
+
+            this.lbl_percent.Text = "-";
+            this.lblV1.Text = "-";
+            this.lblV2.Text = "-";
+            this.lbl_pressure.Text = "-";
+            this.lbl_speed.Text = "-";
+            this.lblTemperature.Text = "-";
         }
     }
 }

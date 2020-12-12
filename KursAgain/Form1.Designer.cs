@@ -33,8 +33,8 @@ namespace KursAgain
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_pressure = new System.Windows.Forms.Label();
+            this.lbl_percent = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -65,18 +65,18 @@ namespace KursAgain
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lblV2 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.lbl_speed = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.lblTemperature = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
+            this.lblV1 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.timer4 = new System.Windows.Forms.Timer(this.components);
@@ -111,23 +111,23 @@ namespace KursAgain
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
+            // lbl_pressure
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(942, 327);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "_";
+            this.lbl_pressure.AutoSize = true;
+            this.lbl_pressure.Location = new System.Drawing.Point(942, 327);
+            this.lbl_pressure.Name = "lbl_pressure";
+            this.lbl_pressure.Size = new System.Drawing.Size(13, 13);
+            this.lbl_pressure.TabIndex = 2;
+            this.lbl_pressure.Text = "_";
             // 
-            // label2
+            // lbl_percent
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(956, 257);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "_";
+            this.lbl_percent.AutoSize = true;
+            this.lbl_percent.Location = new System.Drawing.Point(956, 257);
+            this.lbl_percent.Name = "lbl_percent";
+            this.lbl_percent.Size = new System.Drawing.Size(13, 13);
+            this.lbl_percent.TabIndex = 3;
+            this.lbl_percent.Text = "_";
             // 
             // button2
             // 
@@ -180,7 +180,6 @@ namespace KursAgain
             this.tbShowPressure.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbShowPressure.Size = new System.Drawing.Size(233, 20);
             this.tbShowPressure.TabIndex = 14;
-            this.tbShowPressure.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // tbShowConcentration
             // 
@@ -242,10 +241,9 @@ namespace KursAgain
             this.label7.BackColor = System.Drawing.Color.Silver;
             this.label7.Location = new System.Drawing.Point(662, 5);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(112, 13);
+            this.label7.Size = new System.Drawing.Size(0, 13);
             this.label7.TabIndex = 22;
-            this.label7.Text = "Диапазон давления ";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.label7.Visible = false;
             // 
             // label8
             // 
@@ -276,7 +274,6 @@ namespace KursAgain
             this.label10.Size = new System.Drawing.Size(49, 13);
             this.label10.TabIndex = 27;
             this.label10.Text = "max 99%";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label11
             // 
@@ -287,7 +284,6 @@ namespace KursAgain
             this.label11.Size = new System.Drawing.Size(49, 13);
             this.label11.TabIndex = 26;
             this.label11.Text = "min: 20%";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label12
             // 
@@ -298,7 +294,6 @@ namespace KursAgain
             this.label12.Size = new System.Drawing.Size(132, 13);
             this.label12.TabIndex = 25;
             this.label12.Text = "Диапазон концентрации";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label13
             // 
@@ -347,7 +342,7 @@ namespace KursAgain
             this.label16.Size = new System.Drawing.Size(43, 13);
             this.label16.TabIndex = 33;
             this.label16.Text = "кг/см2";
-           // 
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -412,14 +407,14 @@ namespace KursAgain
             this.textBox8.Size = new System.Drawing.Size(175, 20);
             this.textBox8.TabIndex = 36;
             // 
-            // label19
+            // lblV2
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(521, 206);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(13, 13);
-            this.label19.TabIndex = 37;
-            this.label19.Text = "_";
+            this.lblV2.AutoSize = true;
+            this.lblV2.Location = new System.Drawing.Point(521, 206);
+            this.lblV2.Name = "lblV2";
+            this.lblV2.Size = new System.Drawing.Size(13, 13);
+            this.lblV2.TabIndex = 37;
+            this.lblV2.Text = "_";
             // 
             // label20
             // 
@@ -450,14 +445,14 @@ namespace KursAgain
             this.label21.TabIndex = 42;
             this.label21.Text = "Объем цистерны м3";
             // 
-            // label22
+            // lbl_speed
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(521, 244);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(13, 13);
-            this.label22.TabIndex = 43;
-            this.label22.Text = "_";
+            this.lbl_speed.AutoSize = true;
+            this.lbl_speed.Location = new System.Drawing.Point(521, 244);
+            this.lbl_speed.Name = "lbl_speed";
+            this.lbl_speed.Size = new System.Drawing.Size(13, 13);
+            this.lbl_speed.TabIndex = 43;
+            this.lbl_speed.Text = "_";
             // 
             // label23
             // 
@@ -514,14 +509,14 @@ namespace KursAgain
             this.label28.TabIndex = 51;
             this.label28.Text = "С";
             // 
-            // label29
+            // lblV1
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(315, 236);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(13, 13);
-            this.label29.TabIndex = 52;
-            this.label29.Text = "_";
+            this.lblV1.AutoSize = true;
+            this.lblV1.Location = new System.Drawing.Point(315, 236);
+            this.lblV1.Name = "lblV1";
+            this.lblV1.Size = new System.Drawing.Size(13, 13);
+            this.lblV1.TabIndex = 52;
+            this.lblV1.Text = "_";
             // 
             // label30
             // 
@@ -645,19 +640,19 @@ namespace KursAgain
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.label30);
-            this.Controls.Add(this.label29);
+            this.Controls.Add(this.lblV1);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.lblTemperature);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.label22);
+            this.Controls.Add(this.lbl_speed);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.label19);
+            this.Controls.Add(this.lblV2);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
@@ -684,12 +679,12 @@ namespace KursAgain
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_percent);
+            this.Controls.Add(this.lbl_pressure);
             this.Controls.Add(this.button1);
+            this.Location = new System.Drawing.Point(15, 15);
             this.Name = "Form1";
             this.RightToLeftLayout = true;
-            this.Text = "Система контроля добычи нефти";
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.nuPressureMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.nuPressureMax)).EndInit();
@@ -701,6 +696,16 @@ namespace KursAgain
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label lbl_percent;
+
+        private System.Windows.Forms.Label lbl_pressure;
+
+        private System.Windows.Forms.Label lbl_speed;
+
+        private System.Windows.Forms.Label lblV2;
+
+        private System.Windows.Forms.Label lblV1;
 
         private System.Windows.Forms.NumericUpDown nuConcentrationMax;
         private System.Windows.Forms.NumericUpDown nuConcentrationMin;
@@ -719,8 +724,6 @@ namespace KursAgain
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
@@ -751,18 +754,15 @@ namespace KursAgain
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label lblTemperature;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.Timer timer4;
