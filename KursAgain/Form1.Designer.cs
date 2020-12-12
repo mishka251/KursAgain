@@ -43,8 +43,8 @@ namespace KursAgain
             this.tbPressureMax = new System.Windows.Forms.TextBox();
             this.tbConcentrationMin = new System.Windows.Forms.TextBox();
             this.tbConcentrationMax = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbShowPressure = new System.Windows.Forms.TextBox();
+            this.tbShowConcentration = new System.Windows.Forms.TextBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
@@ -192,33 +192,33 @@ namespace KursAgain
             this.tbConcentrationMax.Size = new System.Drawing.Size(100, 20);
             this.tbConcentrationMax.TabIndex = 13;
             // 
-            // textBox5
+            // tbShowPressure
             // 
-            this.textBox5.AcceptsReturn = true;
-            this.textBox5.AcceptsTab = true;
-            this.textBox5.AllowDrop = true;
-            this.textBox5.Location = new System.Drawing.Point(780, 297);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox5.Size = new System.Drawing.Size(233, 20);
-            this.textBox5.TabIndex = 14;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.tbShowPressure.AcceptsReturn = true;
+            this.tbShowPressure.AcceptsTab = true;
+            this.tbShowPressure.AllowDrop = true;
+            this.tbShowPressure.Location = new System.Drawing.Point(780, 297);
+            this.tbShowPressure.Name = "tbShowPressure";
+            this.tbShowPressure.ReadOnly = true;
+            this.tbShowPressure.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tbShowPressure.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbShowPressure.Size = new System.Drawing.Size(233, 20);
+            this.tbShowPressure.TabIndex = 14;
+            this.tbShowPressure.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
-            // textBox6
+            // tbShowConcentration
             // 
-            this.textBox6.AcceptsReturn = true;
-            this.textBox6.AcceptsTab = true;
-            this.textBox6.AllowDrop = true;
-            this.textBox6.Location = new System.Drawing.Point(780, 226);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox6.Size = new System.Drawing.Size(233, 20);
-            this.textBox6.TabIndex = 15;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.tbShowConcentration.AcceptsReturn = true;
+            this.tbShowConcentration.AcceptsTab = true;
+            this.tbShowConcentration.AllowDrop = true;
+            this.tbShowConcentration.Location = new System.Drawing.Point(780, 226);
+            this.tbShowConcentration.Name = "tbShowConcentration";
+            this.tbShowConcentration.ReadOnly = true;
+            this.tbShowConcentration.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tbShowConcentration.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbShowConcentration.Size = new System.Drawing.Size(233, 20);
+            this.tbShowConcentration.TabIndex = 15;
+            this.tbShowConcentration.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // timer2
             // 
@@ -650,8 +650,8 @@ namespace KursAgain
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.tbShowConcentration);
+            this.Controls.Add(this.tbShowPressure);
             this.Controls.Add(this.tbConcentrationMax);
             this.Controls.Add(this.tbConcentrationMin);
             this.Controls.Add(this.tbPressureMax);
@@ -687,8 +687,8 @@ namespace KursAgain
         private System.Windows.Forms.TextBox tbPressureMax;
         private System.Windows.Forms.TextBox tbConcentrationMin;
         private System.Windows.Forms.TextBox tbConcentrationMax;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbShowPressure;
+        private System.Windows.Forms.TextBox tbShowConcentration;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button5;

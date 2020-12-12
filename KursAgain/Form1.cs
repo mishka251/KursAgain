@@ -20,6 +20,7 @@ namespace KursAgain
         int pressureMax;
         int concentrationsMin;
         int concentrationMax;
+        
         int value;
         int value1;
         int valueres;
@@ -176,46 +177,46 @@ namespace KursAgain
             label6.Update();
             label6.Text = time.ToString();
             //    label3.Text = time.ToString();
-            int value = rnd.Next(pressureMin - 40, pressureMax + 40);
+            int pressure = rnd.Next(pressureMin - 40, pressureMax + 40);
             // valueres = value;
-            int value1 = rnd1.Next(concentrationsMin - 3, concentrationMax + 3);
+            int concentration = rnd1.Next(concentrationsMin - 3, concentrationMax + 3);
             //valueres1 = value1;
             // label4.Text = concentrationsMin.ToString();
             /*  label5.Text = pressureMax.ToString();
               */
             //Давление в системе
-            label1.Text = value.ToString();
+            label1.Text = pressure.ToString();
 
-            if (((value >= pressureMin) && (value < pressureMax)))
+            if (((pressure >= pressureMin) && (pressure < pressureMax)))
             {
-                textBox5.Clear();
-                textBox5.Text += "\r\n" + "Давление в норме.".ToString();
-                textBox5.Update();
+                tbShowPressure.Clear();
+                tbShowPressure.Text += "\r\n" + "Давление в норме.".ToString();
+                tbShowPressure.Update();
             }
             else
             {
-                textBox5.Clear();
-                textBox5.Text += "\r\n" + "Нарушение давления в системе.".ToString();
-                textBox5.Update();
+                tbShowPressure.Clear();
+                tbShowPressure.Text += "\r\n" + "Нарушение давления в системе.".ToString();
+                tbShowPressure.Update();
             }
 
             //пропорции концентратов
-            label2.Text = value1.ToString();
-            if ((value1 >= concentrationsMin) && (value1 < concentrationMax))
+            label2.Text = concentration.ToString();
+            if ((concentration >= concentrationsMin) && (concentration < concentrationMax))
             {
-                textBox6.Clear();
-                textBox6.Text += "\r\n" + "Концентрация реагентов в норме.".ToString();
-                textBox6.Update();
+                tbShowConcentration.Clear();
+                tbShowConcentration.Text += "\r\n" + "Концентрация реагентов в норме.".ToString();
+                tbShowConcentration.Update();
             }
             else
             {
-                textBox6.Clear();
-                textBox6.Text += "\r\n" + "Нарушение концентрации реагентов.".ToString();
-                textBox6.Update();
+                tbShowConcentration.Clear();
+                tbShowConcentration.Text += "\r\n" + "Нарушение концентрации реагентов.".ToString();
+                tbShowConcentration.Update();
             }
 
-            tankarr = tankarr + value / 15;
-            label22.Text = (value / 15).ToString();
+            tankarr = tankarr + pressure / 15;
+            label22.Text = (pressure / 15).ToString();
             label19.Text = tankarr.ToString();
             if (tankarr >= tankV)
             {
@@ -276,7 +277,7 @@ namespace KursAgain
 
             if (progressBar1.Value < tankV)
             {
-                progressBar1.Value = progressBar1.Value + value / 15;
+                progressBar1.Value = progressBar1.Value + pressure / 15;
             }
             else
             {
@@ -317,9 +318,9 @@ namespace KursAgain
                 time = 50;
             }
 
-            textBox5.Clear();
-            textBox5.Text += "\r\n" + "Нарушение давления в системе.".ToString();
-            textBox5.Update();
+            tbShowPressure.Clear();
+            tbShowPressure.Text += "\r\n" + "Нарушение давления в системе.".ToString();
+            tbShowPressure.Update();
             label6.Text = time.ToString();
             label6.Update();
             int i = pressureMin;
@@ -327,15 +328,15 @@ namespace KursAgain
             int value11 = rnd2.Next(concentrationsMin - 3, concentrationMax + 3);
             if ((value11 >= concentrationsMin) && (value11 < concentrationMax))
             {
-                textBox6.Clear();
-                textBox6.Text += "\r\n" + "Концентрация реагентов в норме.".ToString();
-                textBox6.Update();
+                tbShowConcentration.Clear();
+                tbShowConcentration.Text += "\r\n" + "Концентрация реагентов в норме.".ToString();
+                tbShowConcentration.Update();
             }
             else
             {
-                textBox6.Clear();
-                textBox6.Text += "\r\n" + "Нарушение концентрации реагентов.".ToString();
-                textBox6.Update();
+                tbShowConcentration.Clear();
+                tbShowConcentration.Text += "\r\n" + "Нарушение концентрации реагентов.".ToString();
+                tbShowConcentration.Update();
             }
 
             label1.Update();
@@ -441,9 +442,9 @@ namespace KursAgain
                 temp = temp + 0.3;
             }
 
-            textBox6.Clear();
-            textBox6.Text += "\r\n" + "Нарушение концентрации.".ToString();
-            textBox6.Update();
+            tbShowConcentration.Clear();
+            tbShowConcentration.Text += "\r\n" + "Нарушение концентрации.".ToString();
+            tbShowConcentration.Update();
             label6.Text = time.ToString();
             label6.Update();
             int i = concentrationsMin;
@@ -452,15 +453,15 @@ namespace KursAgain
             label2.Update();
             if (((value12 >= pressureMin) && (value12 < pressureMax)))
             {
-                textBox5.Clear();
-                textBox5.Text += "\r\n" + "Давление в норме.".ToString();
-                textBox5.Update();
+                tbShowPressure.Clear();
+                tbShowPressure.Text += "\r\n" + "Давление в норме.".ToString();
+                tbShowPressure.Update();
             }
             else
             {
-                textBox5.Clear();
-                textBox5.Text += "\r\n" + "Нарушение давления в системе.".ToString();
-                textBox5.Update();
+                tbShowPressure.Clear();
+                tbShowPressure.Text += "\r\n" + "Нарушение давления в системе.".ToString();
+                tbShowPressure.Update();
             }
 
             tankarr = tankarr + value12 / 15;
