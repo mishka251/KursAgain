@@ -89,6 +89,9 @@ namespace KursAgain
             this.nuVTank = new System.Windows.Forms.NumericUpDown();
             this.nuConcentrationMin = new System.Windows.Forms.NumericUpDown();
             this.nuConcentrationMax = new System.Windows.Forms.NumericUpDown();
+            this.progressBar3 = new System.Windows.Forms.ProgressBar();
+            this.progressBar4 = new System.Windows.Forms.ProgressBar();
+            this.progressBar5 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.nuPressureMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.nuPressureMax)).BeginInit();
@@ -541,7 +544,7 @@ namespace KursAgain
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 247);
+            this.progressBar1.Location = new System.Drawing.Point(12, 297);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(10, 23);
             this.progressBar1.TabIndex = 39;
@@ -624,12 +627,36 @@ namespace KursAgain
             this.nuConcentrationMax.TabIndex = 62;
             this.nuConcentrationMax.Value = new decimal(new int[] {99, 0, 0, 0});
             // 
+            // progressBar3
+            // 
+            this.progressBar3.Location = new System.Drawing.Point(85, 298);
+            this.progressBar3.Name = "progressBar3";
+            this.progressBar3.Size = new System.Drawing.Size(10, 23);
+            this.progressBar3.TabIndex = 63;
+            // 
+            // progressBar4
+            // 
+            this.progressBar4.Location = new System.Drawing.Point(60, 298);
+            this.progressBar4.Name = "progressBar4";
+            this.progressBar4.Size = new System.Drawing.Size(10, 23);
+            this.progressBar4.TabIndex = 64;
+            // 
+            // progressBar5
+            // 
+            this.progressBar5.Location = new System.Drawing.Point(38, 297);
+            this.progressBar5.Name = "progressBar5";
+            this.progressBar5.Size = new System.Drawing.Size(10, 23);
+            this.progressBar5.TabIndex = 65;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1051, 448);
+            this.Controls.Add(this.progressBar5);
+            this.Controls.Add(this.progressBar4);
+            this.Controls.Add(this.progressBar3);
             this.Controls.Add(this.nuConcentrationMax);
             this.Controls.Add(this.nuConcentrationMin);
             this.Controls.Add(this.nuVTank);
@@ -696,6 +723,10 @@ namespace KursAgain
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ProgressBar progressBar3;
+        private System.Windows.Forms.ProgressBar progressBar4;
+        private System.Windows.Forms.ProgressBar progressBar5;
 
         private System.Windows.Forms.Label lbl_percent;
 

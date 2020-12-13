@@ -204,6 +204,11 @@ namespace KursAgain
             timer2.Start();
             timer3.Stop();
         }
+        
+        void showState()
+        {
+            
+        }
 
         //Таймер клапана
         private void timer2_Tick(object sender, EventArgs e)
