@@ -78,9 +78,8 @@ namespace KursAgain
             this.label28 = new System.Windows.Forms.Label();
             this.lblV1 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.pbStorage = new System.Windows.Forms.ProgressBar();
             this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btnClear = new System.Windows.Forms.Button();
             this.nuPressureMin = new System.Windows.Forms.NumericUpDown();
             this.nuPressureMax = new System.Windows.Forms.NumericUpDown();
@@ -89,9 +88,7 @@ namespace KursAgain
             this.nuVTank = new System.Windows.Forms.NumericUpDown();
             this.nuConcentrationMin = new System.Windows.Forms.NumericUpDown();
             this.nuConcentrationMax = new System.Windows.Forms.NumericUpDown();
-            this.progressBar3 = new System.Windows.Forms.ProgressBar();
-            this.progressBar4 = new System.Windows.Forms.ProgressBar();
-            this.progressBar5 = new System.Windows.Forms.ProgressBar();
+            this.panelTanks = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.nuPressureMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.nuPressureMax)).BeginInit();
@@ -530,24 +527,17 @@ namespace KursAgain
             this.label30.TabIndex = 53;
             this.label30.Text = "м3";
             // 
-            // progressBar2
+            // pbStorage
             // 
-            this.progressBar2.Location = new System.Drawing.Point(283, 255);
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(150, 23);
-            this.progressBar2.TabIndex = 54;
+            this.pbStorage.Location = new System.Drawing.Point(283, 255);
+            this.pbStorage.Name = "pbStorage";
+            this.pbStorage.Size = new System.Drawing.Size(150, 23);
+            this.pbStorage.TabIndex = 54;
             // 
             // timer4
             // 
             this.timer4.Interval = 1500;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 297);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(10, 23);
-            this.progressBar1.TabIndex = 39;
             // 
             // btnClear
             // 
@@ -627,26 +617,12 @@ namespace KursAgain
             this.nuConcentrationMax.TabIndex = 62;
             this.nuConcentrationMax.Value = new decimal(new int[] {99, 0, 0, 0});
             // 
-            // progressBar3
+            // panelTanks
             // 
-            this.progressBar3.Location = new System.Drawing.Point(85, 298);
-            this.progressBar3.Name = "progressBar3";
-            this.progressBar3.Size = new System.Drawing.Size(10, 23);
-            this.progressBar3.TabIndex = 63;
-            // 
-            // progressBar4
-            // 
-            this.progressBar4.Location = new System.Drawing.Point(60, 298);
-            this.progressBar4.Name = "progressBar4";
-            this.progressBar4.Size = new System.Drawing.Size(10, 23);
-            this.progressBar4.TabIndex = 64;
-            // 
-            // progressBar5
-            // 
-            this.progressBar5.Location = new System.Drawing.Point(38, 297);
-            this.progressBar5.Name = "progressBar5";
-            this.progressBar5.Size = new System.Drawing.Size(10, 23);
-            this.progressBar5.TabIndex = 65;
+            this.panelTanks.Location = new System.Drawing.Point(29, 310);
+            this.panelTanks.Name = "panelTanks";
+            this.panelTanks.Size = new System.Drawing.Size(260, 69);
+            this.panelTanks.TabIndex = 63;
             // 
             // Form1
             // 
@@ -654,9 +630,7 @@ namespace KursAgain
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1051, 448);
-            this.Controls.Add(this.progressBar5);
-            this.Controls.Add(this.progressBar4);
-            this.Controls.Add(this.progressBar3);
+            this.Controls.Add(this.panelTanks);
             this.Controls.Add(this.nuConcentrationMax);
             this.Controls.Add(this.nuConcentrationMin);
             this.Controls.Add(this.nuVTank);
@@ -665,7 +639,7 @@ namespace KursAgain
             this.Controls.Add(this.nuPressureMax);
             this.Controls.Add(this.nuPressureMin);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.progressBar2);
+            this.Controls.Add(this.pbStorage);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.lblV1);
             this.Controls.Add(this.label28);
@@ -677,7 +651,6 @@ namespace KursAgain
             this.Controls.Add(this.lbl_speed);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.lblV2);
             this.Controls.Add(this.textBox8);
@@ -724,9 +697,9 @@ namespace KursAgain
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.ProgressBar progressBar3;
-        private System.Windows.Forms.ProgressBar progressBar4;
-        private System.Windows.Forms.ProgressBar progressBar5;
+        private System.Windows.Forms.ProgressBar pbStorage;
+
+        private System.Windows.Forms.Panel panelTanks;
 
         private System.Windows.Forms.Label lbl_percent;
 
@@ -795,9 +768,7 @@ namespace KursAgain
         private System.Windows.Forms.Label lblTemperature;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.Timer timer4;
-        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

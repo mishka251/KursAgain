@@ -67,6 +67,9 @@
     <Compile Include="Spravka.Designer.cs">
       <DependentUpon>Spravka.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerticalprogressBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
