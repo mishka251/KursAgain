@@ -230,7 +230,7 @@ namespace KursAgain
                 this.brokePressureBtn.Enabled = true;
                 this.repairPressureBtn.Enabled = false;
 
-                if (!this.fuelFillTimer.Enabled && !this.simulationState.IsStorageFull)
+                if (!this.fuelFillTimer.Enabled && !this.simulationState.IsStorageFull&& this.simulationState.IsOk)
                 {
                     this.fuelFillTimer.Start();
                 }
@@ -238,7 +238,7 @@ namespace KursAgain
             else
             {
                 tbShowPressure.Text = "Нарушение давления в системе.";
-                if (!this.autoRepairPressureTimer.Enabled && this.simulationState.IsOk)
+                if (!this.autoRepairPressureTimer.Enabled )
                 {
                     this.autoRepairPressureTimer.Start();
                 }
@@ -355,6 +355,20 @@ namespace KursAgain
             this.pbStorage.Value = 0;
             this.panelTanks.Controls.Clear();
             this.pbTanks.Clear();
+        }
+
+        
+        
+        private void currentTime_Tick(object sender, EventArgs e)
+        {
+            DateTime currentTime = DateTime.Now;
+            lblCurrentTime.Text = $"{currentTime.Hour}:{currentTime.Minute}:{currentTime.Second}";
+        }
+
+        private void SimulationFormV2_Load(object sender, EventArgs e)
+        {
+            DateTime currentTime = DateTime.Now;
+            lblCurrentTime.Text = $"{currentTime.Hour}:{currentTime.Minute}:{currentTime.Second}";
         }
     }
 }

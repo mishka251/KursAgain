@@ -53,7 +53,6 @@ namespace KursAgain
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.tbLog = new System.Windows.Forms.TextBox();
@@ -87,6 +86,8 @@ namespace KursAgain
             this.nuConcentrationMin = new System.Windows.Forms.NumericUpDown();
             this.nuConcentrationMax = new System.Windows.Forms.NumericUpDown();
             this.panelTanks = new System.Windows.Forms.Panel();
+            this.currentTime = new System.Windows.Forms.Timer(this.components);
+            this.lblCurrentTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.nuPressureMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.nuPressureMax)).BeginInit();
@@ -101,7 +102,7 @@ namespace KursAgain
             // 
             this.btnStart.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnStart.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnStart.Location = new System.Drawing.Point(273, 16);
+            this.btnStart.Location = new System.Drawing.Point(271, 86);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(112, 30);
             this.btnStart.TabIndex = 0;
@@ -112,7 +113,7 @@ namespace KursAgain
             // lbl_pressure
             // 
             this.lbl_pressure.AutoSize = true;
-            this.lbl_pressure.Location = new System.Drawing.Point(942, 327);
+            this.lbl_pressure.Location = new System.Drawing.Point(940, 397);
             this.lbl_pressure.Name = "lbl_pressure";
             this.lbl_pressure.Size = new System.Drawing.Size(13, 13);
             this.lbl_pressure.TabIndex = 2;
@@ -121,7 +122,7 @@ namespace KursAgain
             // lbl_percent
             // 
             this.lbl_percent.AutoSize = true;
-            this.lbl_percent.Location = new System.Drawing.Point(956, 257);
+            this.lbl_percent.Location = new System.Drawing.Point(954, 327);
             this.lbl_percent.Name = "lbl_percent";
             this.lbl_percent.Size = new System.Drawing.Size(13, 13);
             this.lbl_percent.TabIndex = 3;
@@ -131,7 +132,7 @@ namespace KursAgain
             // 
             this.btnStop.BackColor = System.Drawing.Color.DarkRed;
             this.btnStop.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnStop.Location = new System.Drawing.Point(273, 52);
+            this.btnStop.Location = new System.Drawing.Point(271, 122);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(112, 30);
             this.btnStop.TabIndex = 4;
@@ -142,7 +143,7 @@ namespace KursAgain
             // brokePressureBtn
             // 
             this.brokePressureBtn.BackColor = System.Drawing.Color.Red;
-            this.brokePressureBtn.Location = new System.Drawing.Point(655, 291);
+            this.brokePressureBtn.Location = new System.Drawing.Point(653, 361);
             this.brokePressureBtn.Name = "brokePressureBtn";
             this.brokePressureBtn.Size = new System.Drawing.Size(119, 30);
             this.brokePressureBtn.TabIndex = 18;
@@ -153,7 +154,7 @@ namespace KursAgain
             // repairPressureBtn
             // 
             this.repairPressureBtn.BackColor = System.Drawing.Color.Green;
-            this.repairPressureBtn.Location = new System.Drawing.Point(655, 325);
+            this.repairPressureBtn.Location = new System.Drawing.Point(653, 395);
             this.repairPressureBtn.Name = "repairPressureBtn";
             this.repairPressureBtn.Size = new System.Drawing.Size(119, 26);
             this.repairPressureBtn.TabIndex = 18;
@@ -171,7 +172,7 @@ namespace KursAgain
             this.tbShowPressure.AcceptsReturn = true;
             this.tbShowPressure.AcceptsTab = true;
             this.tbShowPressure.AllowDrop = true;
-            this.tbShowPressure.Location = new System.Drawing.Point(780, 297);
+            this.tbShowPressure.Location = new System.Drawing.Point(778, 367);
             this.tbShowPressure.Name = "tbShowPressure";
             this.tbShowPressure.ReadOnly = true;
             this.tbShowPressure.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -184,7 +185,7 @@ namespace KursAgain
             this.tbShowConcentration.AcceptsReturn = true;
             this.tbShowConcentration.AcceptsTab = true;
             this.tbShowConcentration.AllowDrop = true;
-            this.tbShowConcentration.Location = new System.Drawing.Point(780, 226);
+            this.tbShowConcentration.Location = new System.Drawing.Point(778, 296);
             this.tbShowConcentration.Name = "tbShowConcentration";
             this.tbShowConcentration.ReadOnly = true;
             this.tbShowConcentration.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -209,7 +210,7 @@ namespace KursAgain
             // brokeConcentrationBtn
             // 
             this.brokeConcentrationBtn.BackColor = System.Drawing.Color.Red;
-            this.brokeConcentrationBtn.Location = new System.Drawing.Point(655, 219);
+            this.brokeConcentrationBtn.Location = new System.Drawing.Point(653, 289);
             this.brokeConcentrationBtn.Name = "brokeConcentrationBtn";
             this.brokeConcentrationBtn.Size = new System.Drawing.Size(119, 30);
             this.brokeConcentrationBtn.TabIndex = 20;
@@ -220,7 +221,7 @@ namespace KursAgain
             // repairConcentrationBtn
             // 
             this.repairConcentrationBtn.BackColor = System.Drawing.Color.Green;
-            this.repairConcentrationBtn.Location = new System.Drawing.Point(655, 255);
+            this.repairConcentrationBtn.Location = new System.Drawing.Point(653, 325);
             this.repairConcentrationBtn.Name = "repairConcentrationBtn";
             this.repairConcentrationBtn.Size = new System.Drawing.Size(119, 24);
             this.repairConcentrationBtn.TabIndex = 21;
@@ -237,7 +238,7 @@ namespace KursAgain
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Silver;
-            this.label7.Location = new System.Drawing.Point(662, 5);
+            this.label7.Location = new System.Drawing.Point(660, 75);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(0, 13);
             this.label7.TabIndex = 22;
@@ -247,7 +248,7 @@ namespace KursAgain
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Silver;
-            this.label8.Location = new System.Drawing.Point(663, 22);
+            this.label8.Location = new System.Drawing.Point(686, 75);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(107, 13);
             this.label8.TabIndex = 23;
@@ -257,7 +258,7 @@ namespace KursAgain
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Silver;
-            this.label9.Location = new System.Drawing.Point(663, 39);
+            this.label9.Location = new System.Drawing.Point(676, 95);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(117, 13);
             this.label9.TabIndex = 24;
@@ -266,8 +267,8 @@ namespace KursAgain
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (128)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
-            this.label10.Location = new System.Drawing.Point(662, 108);
+            this.label10.BackColor = System.Drawing.Color.Yellow;
+            this.label10.Location = new System.Drawing.Point(663, 168);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(49, 13);
             this.label10.TabIndex = 27;
@@ -276,8 +277,8 @@ namespace KursAgain
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (128)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
-            this.label11.Location = new System.Drawing.Point(662, 91);
+            this.label11.BackColor = System.Drawing.Color.Yellow;
+            this.label11.Location = new System.Drawing.Point(663, 152);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 13);
             this.label11.TabIndex = 26;
@@ -286,27 +287,17 @@ namespace KursAgain
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (128)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
-            this.label12.Location = new System.Drawing.Point(652, 64);
+            this.label12.BackColor = System.Drawing.Color.Yellow;
+            this.label12.Location = new System.Drawing.Point(650, 134);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(132, 13);
+            this.label12.Size = new System.Drawing.Size(187, 13);
             this.label12.TabIndex = 25;
-            this.label12.Text = "Диапазон концентрации";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (128)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
-            this.label13.Location = new System.Drawing.Point(663, 75);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 13);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "реганетов";
+            this.label12.Text = "Диапазон концентрации реагентов";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(826, 0);
+            this.label14.Location = new System.Drawing.Point(824, 70);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(27, 13);
             this.label14.TabIndex = 29;
@@ -315,7 +306,7 @@ namespace KursAgain
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(932, 0);
+            this.label15.Location = new System.Drawing.Point(930, 70);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(30, 13);
             this.label15.TabIndex = 30;
@@ -324,7 +315,7 @@ namespace KursAgain
             // tbLog
             // 
             this.tbLog.AllowDrop = true;
-            this.tbLog.Location = new System.Drawing.Point(780, 142);
+            this.tbLog.Location = new System.Drawing.Point(778, 212);
             this.tbLog.Multiline = true;
             this.tbLog.Name = "tbLog";
             this.tbLog.ReadOnly = true;
@@ -335,7 +326,7 @@ namespace KursAgain
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(970, 327);
+            this.label16.Location = new System.Drawing.Point(968, 397);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(43, 13);
             this.label16.TabIndex = 33;
@@ -344,7 +335,7 @@ namespace KursAgain
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(998, 257);
+            this.label17.Location = new System.Drawing.Point(996, 327);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(15, 13);
             this.label17.TabIndex = 34;
@@ -390,8 +381,8 @@ namespace KursAgain
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (128)))), ((int) (((byte) (255)))), ((int) (((byte) (255)))));
-            this.label18.Location = new System.Drawing.Point(665, 125);
+            this.label18.BackColor = System.Drawing.Color.Yellow;
+            this.label18.Location = new System.Drawing.Point(663, 188);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(68, 13);
             this.label18.TabIndex = 35;
@@ -399,7 +390,7 @@ namespace KursAgain
             // 
             // tbFillingState
             // 
-            this.tbFillingState.Location = new System.Drawing.Point(481, 178);
+            this.tbFillingState.Location = new System.Drawing.Point(479, 248);
             this.tbFillingState.Name = "tbFillingState";
             this.tbFillingState.ReadOnly = true;
             this.tbFillingState.Size = new System.Drawing.Size(175, 20);
@@ -408,7 +399,7 @@ namespace KursAgain
             // button7
             // 
             this.button7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button7.Location = new System.Drawing.Point(511, 108);
+            this.button7.Location = new System.Drawing.Point(509, 178);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(105, 23);
             this.button7.TabIndex = 41;
@@ -419,7 +410,7 @@ namespace KursAgain
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(508, 16);
+            this.label21.Location = new System.Drawing.Point(506, 86);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(111, 13);
             this.label21.TabIndex = 42;
@@ -428,7 +419,7 @@ namespace KursAgain
             // lbl_speed
             // 
             this.lbl_speed.AutoSize = true;
-            this.lbl_speed.Location = new System.Drawing.Point(521, 244);
+            this.lbl_speed.Location = new System.Drawing.Point(519, 314);
             this.lbl_speed.Name = "lbl_speed";
             this.lbl_speed.Size = new System.Drawing.Size(13, 13);
             this.lbl_speed.TabIndex = 43;
@@ -437,7 +428,7 @@ namespace KursAgain
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(565, 242);
+            this.label23.Location = new System.Drawing.Point(563, 312);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(31, 13);
             this.label23.TabIndex = 44;
@@ -447,7 +438,7 @@ namespace KursAgain
             // 
             this.label24.AutoSize = true;
             this.label24.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (192)))), ((int) (((byte) (255)))));
-            this.label24.Location = new System.Drawing.Point(622, 145);
+            this.label24.Location = new System.Drawing.Point(620, 215);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(152, 13);
             this.label24.TabIndex = 45;
@@ -456,7 +447,7 @@ namespace KursAgain
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(280, 103);
+            this.label25.Location = new System.Drawing.Point(278, 173);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(208, 13);
             this.label25.TabIndex = 47;
@@ -465,7 +456,7 @@ namespace KursAgain
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(270, 162);
+            this.label26.Location = new System.Drawing.Point(268, 232);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(221, 13);
             this.label26.TabIndex = 49;
@@ -474,7 +465,7 @@ namespace KursAgain
             // lblTemperature
             // 
             this.lblTemperature.AutoSize = true;
-            this.lblTemperature.Location = new System.Drawing.Point(336, 206);
+            this.lblTemperature.Location = new System.Drawing.Point(334, 276);
             this.lblTemperature.Name = "lblTemperature";
             this.lblTemperature.Size = new System.Drawing.Size(13, 13);
             this.lblTemperature.TabIndex = 50;
@@ -483,7 +474,7 @@ namespace KursAgain
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(371, 206);
+            this.label28.Location = new System.Drawing.Point(369, 276);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(14, 13);
             this.label28.TabIndex = 51;
@@ -492,7 +483,7 @@ namespace KursAgain
             // lblV1
             // 
             this.lblV1.AutoSize = true;
-            this.lblV1.Location = new System.Drawing.Point(315, 236);
+            this.lblV1.Location = new System.Drawing.Point(313, 306);
             this.lblV1.Name = "lblV1";
             this.lblV1.Size = new System.Drawing.Size(13, 13);
             this.lblV1.TabIndex = 52;
@@ -501,7 +492,7 @@ namespace KursAgain
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(364, 236);
+            this.label30.Location = new System.Drawing.Point(362, 306);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(21, 13);
             this.label30.TabIndex = 53;
@@ -509,7 +500,7 @@ namespace KursAgain
             // 
             // pbStorage
             // 
-            this.pbStorage.Location = new System.Drawing.Point(283, 255);
+            this.pbStorage.Location = new System.Drawing.Point(281, 325);
             this.pbStorage.Name = "pbStorage";
             this.pbStorage.Size = new System.Drawing.Size(150, 23);
             this.pbStorage.TabIndex = 54;
@@ -521,7 +512,7 @@ namespace KursAgain
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(391, 16);
+            this.btnClear.Location = new System.Drawing.Point(389, 86);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(90, 29);
             this.btnClear.TabIndex = 55;
@@ -531,7 +522,7 @@ namespace KursAgain
             // 
             // nuPressureMin
             // 
-            this.nuPressureMin.Location = new System.Drawing.Point(801, 18);
+            this.nuPressureMin.Location = new System.Drawing.Point(799, 88);
             this.nuPressureMin.Maximum = new decimal(new int[] {900, 0, 0, 0});
             this.nuPressureMin.Minimum = new decimal(new int[] {500, 0, 0, 0});
             this.nuPressureMin.Name = "nuPressureMin";
@@ -541,7 +532,7 @@ namespace KursAgain
             // 
             // nuPressureMax
             // 
-            this.nuPressureMax.Location = new System.Drawing.Point(917, 18);
+            this.nuPressureMax.Location = new System.Drawing.Point(915, 88);
             this.nuPressureMax.Maximum = new decimal(new int[] {1700, 0, 0, 0});
             this.nuPressureMax.Minimum = new decimal(new int[] {1200, 0, 0, 0});
             this.nuPressureMax.Name = "nuPressureMax";
@@ -551,7 +542,7 @@ namespace KursAgain
             // 
             // nuTemperatureNeeded
             // 
-            this.nuTemperatureNeeded.Location = new System.Drawing.Point(315, 122);
+            this.nuTemperatureNeeded.Location = new System.Drawing.Point(313, 192);
             this.nuTemperatureNeeded.Maximum = new decimal(new int[] {45, 0, 0, 0});
             this.nuTemperatureNeeded.Minimum = new decimal(new int[] {40, 0, 0, 0});
             this.nuTemperatureNeeded.Name = "nuTemperatureNeeded";
@@ -561,25 +552,25 @@ namespace KursAgain
             // 
             // nuVStorage
             // 
-            this.nuVStorage.Location = new System.Drawing.Point(290, 183);
+            this.nuVStorage.Location = new System.Drawing.Point(288, 253);
             this.nuVStorage.Maximum = new decimal(new int[] {10000, 0, 0, 0});
             this.nuVStorage.Name = "nuVStorage";
             this.nuVStorage.Size = new System.Drawing.Size(142, 20);
             this.nuVStorage.TabIndex = 59;
-            this.nuVStorage.Value = new decimal(new int[] {35, 0, 0, 0});
+            this.nuVStorage.Value = new decimal(new int[] {3500, 0, 0, 0});
             // 
             // nuVTank
             // 
-            this.nuVTank.Location = new System.Drawing.Point(510, 37);
+            this.nuVTank.Location = new System.Drawing.Point(508, 107);
             this.nuVTank.Maximum = new decimal(new int[] {1000, 0, 0, 0});
             this.nuVTank.Name = "nuVTank";
             this.nuVTank.Size = new System.Drawing.Size(105, 20);
             this.nuVTank.TabIndex = 60;
-            this.nuVTank.Value = new decimal(new int[] {5, 0, 0, 0});
+            this.nuVTank.Value = new decimal(new int[] {500, 0, 0, 0});
             // 
             // nuConcentrationMin
             // 
-            this.nuConcentrationMin.Location = new System.Drawing.Point(801, 91);
+            this.nuConcentrationMin.Location = new System.Drawing.Point(799, 161);
             this.nuConcentrationMin.Maximum = new decimal(new int[] {99, 0, 0, 0});
             this.nuConcentrationMin.Minimum = new decimal(new int[] {20, 0, 0, 0});
             this.nuConcentrationMin.Name = "nuConcentrationMin";
@@ -590,7 +581,7 @@ namespace KursAgain
             // nuConcentrationMax
             // 
             this.nuConcentrationMax.Increment = new decimal(new int[] {20, 0, 0, 0});
-            this.nuConcentrationMax.Location = new System.Drawing.Point(917, 89);
+            this.nuConcentrationMax.Location = new System.Drawing.Point(915, 159);
             this.nuConcentrationMax.Maximum = new decimal(new int[] {99, 0, 0, 0});
             this.nuConcentrationMax.Name = "nuConcentrationMax";
             this.nuConcentrationMax.Size = new System.Drawing.Size(74, 20);
@@ -599,10 +590,27 @@ namespace KursAgain
             // 
             // panelTanks
             // 
-            this.panelTanks.Location = new System.Drawing.Point(29, 310);
+            this.panelTanks.AutoScroll = true;
+            this.panelTanks.Location = new System.Drawing.Point(5, 308);
             this.panelTanks.Name = "panelTanks";
-            this.panelTanks.Size = new System.Drawing.Size(260, 69);
+            this.panelTanks.Size = new System.Drawing.Size(260, 113);
             this.panelTanks.TabIndex = 63;
+            // 
+            // currentTime
+            // 
+            this.currentTime.Enabled = true;
+            this.currentTime.Tick += new System.EventHandler(this.currentTime_Tick);
+            // 
+            // lblCurrentTime
+            // 
+            this.lblCurrentTime.BackColor = System.Drawing.Color.Black;
+            this.lblCurrentTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
+            this.lblCurrentTime.ForeColor = System.Drawing.Color.Lime;
+            this.lblCurrentTime.Location = new System.Drawing.Point(389, 9);
+            this.lblCurrentTime.Name = "lblCurrentTime";
+            this.lblCurrentTime.Size = new System.Drawing.Size(205, 43);
+            this.lblCurrentTime.TabIndex = 64;
+            this.lblCurrentTime.Text = "TIME";
             // 
             // SimulationFormV2
             // 
@@ -610,6 +618,7 @@ namespace KursAgain
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1068, 448);
+            this.Controls.Add(this.lblCurrentTime);
             this.Controls.Add(this.panelTanks);
             this.Controls.Add(this.nuConcentrationMax);
             this.Controls.Add(this.nuConcentrationMin);
@@ -639,7 +648,6 @@ namespace KursAgain
             this.Controls.Add(this.tbLog);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
@@ -663,6 +671,7 @@ namespace KursAgain
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "SimulationFormV2";
             this.RightToLeftLayout = true;
+            this.Load += new System.EventHandler(this.SimulationFormV2_Load);
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.nuPressureMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.nuPressureMax)).EndInit();
@@ -674,6 +683,10 @@ namespace KursAgain
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label lblCurrentTime;
+
+        private System.Windows.Forms.Timer currentTime;
 
 
         private System.Windows.Forms.ProgressBar pbStorage;
@@ -723,7 +736,6 @@ namespace KursAgain
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox tbLog;

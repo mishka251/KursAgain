@@ -58,10 +58,6 @@ namespace KursAgain
 
         private int filledTankIndex;
 
-        private bool isAutoRepairingPressure = false;
-        private bool isAutoRepairingConcentration = false;
-        
-
 
         public bool IsStorageFull
         {
@@ -168,7 +164,6 @@ namespace KursAgain
             this.currentPressure =
                 (this.initialParams.PressureMin + this.initialParams.PressureMax) / 2;
             this.pressureState = PressureState.OK;
-            this.isAutoRepairingPressure = false;
         }
 
         public void RepairConcentration()
@@ -176,12 +171,10 @@ namespace KursAgain
             this.currentConcentration =
                 (this.initialParams.ConcentrationMax + this.initialParams.ConcentrationsMin) / 2;
             this.concentrationState = ConcentrationState.OK;
-            this.isAutoRepairingConcentration = false;
         }
 
         public void AutoRepairPressure()
         {
-            this.isAutoRepairingPressure = true;
             if (this.pressureState == PressureState.OK)
             {
                 return;
@@ -198,7 +191,6 @@ namespace KursAgain
 
         public void AutoRepairConcentrtion()
         {
-            this.isAutoRepairingConcentration = true;
             if (this.concentrationState == ConcentrationState.OK)
             {
                 return;
