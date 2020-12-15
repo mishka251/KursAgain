@@ -18,7 +18,7 @@ namespace KursAgain
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
+            Form form = new SimulationFormV2();
             form.ShowDialog();
         }
     }
