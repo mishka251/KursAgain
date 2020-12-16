@@ -151,12 +151,18 @@ namespace KursAgain
         {
             this.timeToRepairPressure = 10;
             this.pressureState = PressureState.BROKEN;
+            this.currentPressure = random.NextDouble() > 0.5
+                ? this.initialParams.PressureMin - 50
+                : this.initialParams.PressureMax + 50;
         }
 
         public void BrokeConcentration()
         {
             this.timeToRepairConcentration = 10;
             this.concentrationState = ConcentrationState.BROKEN;
+            this.currentConcentration = random.NextDouble() > 0.5
+                ? this.initialParams.ConcentrationsMin - 1
+                : this.initialParams.ConcentrationMax + 1;
         }
 
         public void RepairPressure()

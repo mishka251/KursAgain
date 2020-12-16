@@ -198,6 +198,7 @@ namespace KursAgain
                 this.brokeConcentrationBtn.Enabled = false;
                 this.repairConcentrationBtn.Enabled = true;
             }
+            showConcentration(simulationState.CurrentConcentration);
         }
 
         private void autoRepairConcentrationTimer_Tick(object sender, EventArgs e)
@@ -251,6 +252,7 @@ namespace KursAgain
                     this.fuelFillTimer.Stop();
                 }
             }
+            ShowPressure(simulationState.CurrentPressure);
         }
 
         private void autoRepairPressureTimer_Tick(object sender, EventArgs e)
