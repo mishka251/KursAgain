@@ -47,7 +47,7 @@ namespace KursAgain
                 temperatureTimer.Start();
                 fuelFillTimer.Start();
 
-                tbLog.Text += "\r\n" + "Сисетма запущена";
+                tbLog.Text += "\r\n" + "Система запущена";
                 tbFillingState.Text += "Резервуар наполняется";
 
                 int tanksCount = simulationParams.TanksCount;

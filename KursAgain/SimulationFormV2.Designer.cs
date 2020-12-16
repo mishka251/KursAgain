@@ -451,7 +451,7 @@ namespace KursAgain
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(208, 13);
             this.label25.TabIndex = 47;
-            this.label25.Text = "Требуемая температура нетфи (40-45С)";
+            this.label25.Text = "Требуемая температура нефти (40-45С)";
             // 
             // label26
             // 
